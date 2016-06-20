@@ -45,6 +45,10 @@ cache:
 matrix:
   fast_finish: true
   include:
+    - env:
+        - FEDORA_CI=Y
+      services:
+        - docker
     - jdk: oraclejdk8
       sudo: required
       dist: trusty
@@ -122,10 +126,6 @@ matrix:
       env:
         - PG_VERSION=9.1
         - COVERAGE=Y
-    - env:
-        - FEDORA_CI=yes
-      services:
-        - docker
 
 # Deploy snapshots to Maven Central
 after_success:
